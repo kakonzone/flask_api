@@ -6,3 +6,6 @@
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+  k
+[build.environment]
+  PYTHON_VERSION = "3.10"
