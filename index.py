@@ -24,6 +24,31 @@ import time
 from functools import wraps
 import json
 
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return jsonify({"message": "Hello"})
+
+# ✅ if __name__ == '__main__' block remove করুন
+
+
+@app.route('/api/data')
+def get_data():
+    return jsonify({
+        "data": [1, 2, 3, 4, 5],
+        "count": 5
+    })
+
+@app.errorhandler(404)
+def not_found(e):
+    return jsonify({
+        "error": "Not Found",
+        "status": 404
+    }), 404
+
 
 # ============= ENHANCED LOGGING SYSTEM =============
 
